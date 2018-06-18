@@ -58,10 +58,7 @@ public class FileLoader {
 		}
 		catch(FileNotFoundException e) {
 			System.out.print(e.getMessage());
-		} catch (IOException e1) {
-			e1.fillInStackTrace();
-		}
-
+		} 
 		return messages;
 	}
 }
