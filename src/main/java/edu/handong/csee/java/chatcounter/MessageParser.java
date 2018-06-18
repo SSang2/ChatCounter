@@ -39,20 +39,20 @@ public class MessageParser {
 
 		while(i>=0) {
 
-			String s = messages.get(i);
+			String str = messages.get(i);
 
-			if(s==null) {
+			if(str==null) {
 				messages.remove(i);
 				i--;
 				continue;
 			}
 
-			Matcher m1 = p1.matcher(s);
-			Matcher m2 = p2.matcher(s);
+			Matcher m1 = p1.matcher(str);
+			Matcher m2 = p2.matcher(str);
 
 			if(!m1.find() && !m2.find()) {
 				String preLine = messages.get(i-1);
-				preLine = preLine.concat(s);
+				preLine = preLine.concat(str);
 				i--;
 				continue;
 			}
@@ -74,8 +74,6 @@ public class MessageParser {
 			if(c=='-') {
 
 				String firstLine = fl;
-				String firstpattern = "-+\\s([0-9]+).\\s([0-9]).\\s([0-9]+).";
-				Pattern p1 = Pattern.compile(firstpattern);
 				Matcher m1 = p1.matcher(firstLine);
 
 				if(m1.find()) {
@@ -107,9 +105,6 @@ public class MessageParser {
 		int hour =0;
 		int minute =0;
 
-
-		String pattern = "\\[(.[A-Za-z]+)\\]\\s\\[(.[A-Za-z]+)\\s([0-9]+)\\:([0-9]+)\\]\\s(.+)";
-		Pattern r = Pattern.compile(pattern);
 		Matcher m = r.matcher(s);
 
 		if(m.find()) {
