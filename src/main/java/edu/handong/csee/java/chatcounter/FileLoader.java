@@ -23,7 +23,7 @@ public class FileLoader {
 		File myDir = getDir(path);
 		File[] files = getListDir(myDir);
 
-		ArrayList<String> messages = readFiles(files);
+		ArrayList<String> messages = loadingFiles(files);
 		return messages; 
 	}
 
@@ -36,13 +36,12 @@ public class FileLoader {
 	private File[] getListDir(File fileDir) {
 
 		for(File file : fileDir.listFiles()) {
-			System.out.println(file.getAbsolutePath());
 		}
 
 		return fileDir.listFiles();
 	}
 
-	private ArrayList<String> readFiles(File[] file){
+	private ArrayList<String> loadingFiles(File[] file){
 
 		ArrayList<String> messages = new ArrayList<String>();
 
@@ -52,7 +51,6 @@ public class FileLoader {
 
 				while(buffr.readLine()!=null) {
 					String line = buffr.readLine();
-					messages.add(line);
 				}
 			}
 		}
