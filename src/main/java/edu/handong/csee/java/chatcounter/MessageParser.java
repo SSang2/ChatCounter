@@ -53,7 +53,6 @@ public class MessageParser {
 			if(!m1.find() && !m2.find()) {
 				String preLine = messages.get(i-1);
 				preLine = preLine.concat(s);
-				messages.remove(i);
 				i--;
 				continue;
 			}
