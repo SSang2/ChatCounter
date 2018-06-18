@@ -19,7 +19,6 @@ public class FileLoaderThread implements Runnable{
 	//This is constructor of DataReaderThread.
 	public FileLoaderThread(File file) {
 		this.files = file;
-
 	}
 
 	//run method

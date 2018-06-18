@@ -27,7 +27,7 @@ public class ChatCounter_main {
 		ArrayList<String> messages = new ArrayList<String>();
 		ArrayList<Lists> list = new ArrayList<Lists>();
 		HashMap<String,Integer> nameAndMessage = new HashMap<String,Integer>();
-		
+
 		FileWriter writer = new FileWriter();
 		MessageParser parser = new MessageParser();
 		PMCounter filter = new PMCounter();

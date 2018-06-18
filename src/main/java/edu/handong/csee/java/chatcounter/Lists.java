@@ -15,7 +15,7 @@ public class Lists {
 	int month=0;
 	int date=0;
 	int time=0;
-	
+
 	public Lists(String username, String message, int year, int date, int time) {
 		this.username = username;
 		this.message = message;
@@ -45,23 +45,23 @@ public class Lists {
 	}
 
 	//Lists getter
-		public String setUserName() {
-			return username;
-		}
+	public String setUserName() {
+		return username;
+	}
 
-		public String setMessage() {
-			return message;
-		}
+	public String setMessage() {
+		return message;
+	}
 
-		public int setYear() {
-			return year;
-		}
+	public int setYear() {
+		return year;
+	}
 
-		public int setDate() {
-			return date;
-		}
+	public int setDate() {
+		return date;
+	}
 
-		public int setTime() {
-			return time;
-		}
+	public int setTime() {
+		return time;
+	}
 }
