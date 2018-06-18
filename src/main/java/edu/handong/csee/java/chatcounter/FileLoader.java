@@ -20,14 +20,14 @@ public class FileLoader {
 
 	public ArrayList<String> getInfo(String path){
 
-		File myDir = getDirectory(path);
+		File myDir = getDir(path);
 		File[] files = getListDir(myDir);
 
 		ArrayList<String> messages = readFiles(files);
 		return messages; 
 	}
 
-	private File getDirectory(String path) {  
+	private File getDir(String path) {  
 
 		File myDirectory = new File(path);
 		return myDirectory;
@@ -49,7 +49,6 @@ public class FileLoader {
 		try {
 			for(File e: file) {
 				buffr = new BufferedReader(new InputStreamReader(new FileInputStream(e)));
-				System.out.println("succeed to access into the file");
 
 				while(buffr.readLine()!=null) {
 					String line = buffr.readLine();
