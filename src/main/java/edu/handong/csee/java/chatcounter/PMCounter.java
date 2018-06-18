@@ -7,7 +7,7 @@ import java.util.ArrayList;
  @author LeeSangHyun
  **/
 
-//It is for the count the number of listfiles
+//It is for the count the number of list files
 public class PMCounter {
 
 	public HashMap<String,Integer> countMessage(ArrayList<Lists> list) {

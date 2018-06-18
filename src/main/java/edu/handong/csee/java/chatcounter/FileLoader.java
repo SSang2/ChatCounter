@@ -1,69 +1,44 @@
 package edu.handong.csee.java.chatcounter;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 /**
- It needs to get the files from the directories. Loading Data.
+ It needs to get the files from the directories. Loading Data files by thread
  @author LeeSangHyun
  **/
 
 //it is for loading the files from the directory 
 public class FileLoader {
 
+	public ArrayList<String> getFiles(String path, String number){
 
-	private BufferedReader buffr;
+		File listPathDir = getDir(path);
+		File[] files = ListDir(listPathDir);
+		int Thread = Integer.parseInt(number);
 
-	public ArrayList<String> getInfo(String path){
+		ExecutorService executor = Executors.newFixedThreadPool(Thread);
 
-		File myDir = getDirectory(path);
-		File[] files = getListDir(myDir);
-
-		ArrayList<String> messages = readFiles(files);
-		return messages; 
+		for(File f : files) {
+			FileLoaderThread fileloader = new FileLoaderThread(f);
+			executor.execute(fileloader);
+		}
+		executor.shutdown();
+		return null;
 	}
 
-	private File getDirectory(String path) {  
+
+	private File getDir(String path) {  
 
 		File myDirectory = new File(path);
 		return myDirectory;
 	}
 
-	private File[] getListDir(File fileDir) {
-
-		for(File file : fileDir.listFiles()) {
-			System.out.println(file.getAbsolutePath());
-		}
-
-		return fileDir.listFiles();
-	}
-
-	private ArrayList<String> readFiles(File[] file){
-
-		ArrayList<String> messages = new ArrayList<String>();
-
-		try {
-			for(File e: file) {
-				buffr = new BufferedReader(new InputStreamReader(new FileInputStream(e)));
-				System.out.println("succeed to access into the file");
-
-				while(buffr.readLine()!=null) {
-					String line = buffr.readLine();
-					messages.add(line);
-				}
-			}
-		}
-		catch(FileNotFoundException e) {
-			System.out.print(e.getMessage());
-		} catch (IOException e1) {
-			e1.fillInStackTrace();
-		}
-
-		return messages;
+	private File[] ListDir(File filesDir) {
+		return filesDir.listFiles();
 	}
 }
+
+
 

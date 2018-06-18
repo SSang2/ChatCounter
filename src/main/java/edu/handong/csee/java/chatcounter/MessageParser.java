@@ -126,7 +126,7 @@ public class MessageParser {
 
 
 	}
-	//parsing the csv
+	//parsing the CSV
 	private void parseCSV(int count,String s) {
 
 		String name="";
